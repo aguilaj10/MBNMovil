@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MBNMovil</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="registrarme">Registrarme</string>
+    <string name="olvido_contrasena">Olvidó su contraseña?</string>
 </resources>
