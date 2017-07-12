@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.mbn.movil.R;
 import com.mbn.movil.di.DaggerMainComponent;
+import com.mbn.movil.di.ModuloComun;
 import com.mbn.movil.di.ModuloUsuarios;
 import com.mbn.movil.presenter.IniciarSesionContract;
 
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements IniciarSesionCont
         ButterKnife.bind(this);
 
         DaggerMainComponent.builder()
-                .moduloUsuarios(new ModuloUsuarios(this, getApplication()))
+                .moduloComun(new ModuloComun(getApplication()))
+                .moduloUsuarios(new ModuloUsuarios(this))
                 .build().inyectaEnMainActivity(this);
 
         Log.d(TAG, "onCreate: ");
