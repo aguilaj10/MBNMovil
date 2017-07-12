@@ -24,11 +24,9 @@ import okhttp3.logging.HttpLoggingInterceptor;
 @Module
 public class ModuloUsuarios {
     private final IniciarSesionContract.Vista vista;
-    private final Application app;
 
-    public ModuloUsuarios(IniciarSesionContract.Vista vista, Application app) {
+    public ModuloUsuarios(IniciarSesionContract.Vista vista) {
         this.vista = vista;
-        this.app = app;
     }
 
     @Provides
@@ -47,32 +45,5 @@ public class ModuloUsuarios {
     @Singleton
     public IniciarSesionCall providesCall(MBNMovilAPI api) {
         return new IniciarSesionCall(api);
-    }
-
-    @Provides
-    @Singleton
-    public Cache providesCache () {
-        int cacheSize = 10 * 1024 * 1024;
-        Cache cache = new Cache(app.getCacheDir(), cacheSize);
-        return cache;
-    }
-
-    @Provides
-    @Singleton
-    public OkHttpClient providesOkHttpClient(Cache cache) {
-        OkHttpClient.Builder client = new OkHttpClient.Builder();
-        client.cache(cache);
-
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-
-        client.addInterceptor(logging);
-        return client.build();
-    }
-
-    @Provides
-    @Singleton
-    public MBNMovilAPI providesAPI (OkHttpClient okHttpClient) {
-        return new RetrofitClient().crearCliente(okHttpClient);
     }
 }
