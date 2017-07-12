@@ -5,5 +5,5 @@ package com.mbn.movil.config;
  */
 
 public class ConstantesEstaticas {
-    public static final String END_POINT = "http://localhost:8080/mbn-service/ws/";
+    public static final String END_POINT = "http://192.168.1.71:8080/mbn-service/ws/";
 }

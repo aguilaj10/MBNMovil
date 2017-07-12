@@ -33,6 +33,10 @@ android {
             applicationIdSuffix ".prod"
             versionNameSuffix "-prod"
         }
+        servMBN {
+            applicationIdSuffix ".mbn"
+            versionNameSuffix "-mbn"
+        }
     }
 
     configurations.all {

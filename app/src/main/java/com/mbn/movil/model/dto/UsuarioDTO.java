@@ -1,4 +1,4 @@
-package com.mbn.movil.model;
+package com.mbn.movil.model.dto;
 
 import com.mbn.movil.model.entities.Usuario;
 

@@ -2,6 +2,7 @@ package com.mbn.movil.view.impl;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements IniciarSesionContract.Vista {
+    private static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.usuario)
     EditText usuario;
     @BindView(R.id.contrasena)
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements IniciarSesionCont
         DaggerMainComponent.builder()
                 .moduloUsuarios(new ModuloUsuarios(this, getApplication()))
                 .build().inyectaEnMainActivity(this);
+
+        Log.d(TAG, "onCreate: ");
     }
 
     @OnClick (R.id.btnIniciarSesion)

@@ -2,7 +2,7 @@ package com.mbn.movil.model.api;
 
 import android.util.Log;
 
-import com.mbn.movil.model.UsuarioDTO;
+import com.mbn.movil.model.dto.UsuarioDTO;
 import com.mbn.movil.model.entities.Usuario;
 import com.mbn.movil.presenter.IniciarSesionContract;
 
