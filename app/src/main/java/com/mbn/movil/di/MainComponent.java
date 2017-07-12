@@ -1,6 +1,8 @@
 package com.mbn.movil.di;
 
 import com.mbn.movil.MBNMovilApp;
+import com.mbn.movil.presenter.IniciarSesionContract;
+import com.mbn.movil.view.impl.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -15,4 +17,6 @@ import dagger.Component;
 public interface MainComponent {
 
     void inject(Object injectable);
+
+    void inyectaEnMainActivity(MainActivity mainActivity);
 }
