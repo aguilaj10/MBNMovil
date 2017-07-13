@@ -62,6 +62,12 @@ public class MainActivity extends AppCompatActivity implements IniciarSesionCont
         }
     }
 
+    @OnClick(R.id.linkRegistrarme)
+    public void registrarUsuario(View btn){
+        Intent intent = new Intent(this, RegistrarUsuario.class);
+        startActivity(intent);
+    }
+
     @Override
     public void mostrarPantallaInicio(UsuarioDTO dto) {
         MBNMovilApp.dto = dto;
@@ -74,4 +80,5 @@ public class MainActivity extends AppCompatActivity implements IniciarSesionCont
     public void mostrarError(String error) {
         Toast.makeText(this, error, Toast.LENGTH_LONG).show();
     }
+
 }

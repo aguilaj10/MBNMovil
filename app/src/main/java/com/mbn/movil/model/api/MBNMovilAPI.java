@@ -15,4 +15,7 @@ public interface MBNMovilAPI {
 
     @POST ("mbn-service/ws/iniciarSesion/")
     Call<UsuarioDTO> iniciarSesion(@Body UsuarioDTO dto);
+
+    @POST ("mbn-service/ws/iniciarSesion/")
+    Call<ResponseBody> registrarUsuario(@Body UsuarioDTO dto);
 }
