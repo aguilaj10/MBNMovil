@@ -7,7 +7,6 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.mbn.movil.MBNMovilApp;
@@ -19,7 +18,6 @@ import com.mbn.movil.model.dto.UsuarioDTO;
 import com.mbn.movil.presenter.IniciarSesionContract;
 import com.mbn.movil.util.MD5;
 import com.rengwuxian.materialedittext.MaterialEditText;
-import com.rengwuxian.materialedittext.validation.METValidator;
 
 import javax.inject.Inject;
 

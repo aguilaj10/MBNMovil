@@ -16,6 +16,15 @@
             android:name=".view.impl.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MBNNoTitle">
+
+        </activity>
+        
+        <activity android:name=".view.impl.ReservacionesActivity"
+            android:label="Reservaciones"/>
+        <activity android:name=".view.impl.ViajesActivity" android:label="Viajes"></activity>
+
+        <activity android:name=".view.impl.HomeActivity"
+            android:label="@string/bienvenido">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,9 +44,6 @@
                     android:scheme="http"></data>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.impl.HomeActivity"
-            android:label="@string/bienvenido" />
         <activity android:name=".view.impl.CambiarContrasenaActivity"></activity>
     </application>
 
