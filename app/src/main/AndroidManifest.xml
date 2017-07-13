@@ -9,13 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.impl.MainActivity"
-            android:theme="@style/MBNNoTitle"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".view.impl.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MBNNoTitle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.impl.CambiarContrasena">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW">
+                </action>
+                <category android:name="android.intent.category.DEFAULT"></category>
+                <category android:name="android.intent.category.BROWSABLE"></category>
+                <data android:scheme="http" android:host="www.mbn.com.mx" android:pathPrefix="/MBNMovil/cambiarContrasena">
+
+                </data>
             </intent-filter>
         </activity>
     </application>
