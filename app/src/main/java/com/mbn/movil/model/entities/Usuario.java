@@ -7,4 +7,8 @@ package com.mbn.movil.model.entities;
 public class Usuario {
     public String usuario;
     public String contrasena;
+    public String nombre;
+    public String apellidos;
+    public String estado;
+    public Integer usuarioId;
 }
