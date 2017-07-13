@@ -14,5 +14,5 @@ import retrofit2.http.POST;
 public interface MBNMovilAPI {
 
     @POST ("mbn-service/ws/iniciarSesion/")
-    Call<ResponseBody> iniciarSesion(@Body UsuarioDTO dto);
+    Call<UsuarioDTO> iniciarSesion(@Body UsuarioDTO dto);
 }

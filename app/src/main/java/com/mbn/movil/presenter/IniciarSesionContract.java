@@ -1,13 +1,15 @@
 package com.mbn.movil.presenter;
 
+import com.mbn.movil.model.dto.UsuarioDTO;
+
 /**
  * Created by jonathan on 11/07/17.
  */
 
 public interface IniciarSesionContract {
     interface Vista {
-        void mostrarPantallaInicio();
-        void mostrarError();
+        void mostrarPantallaInicio(UsuarioDTO dto);
+        void mostrarError(String error);
     }
 
     interface Presenter {
@@ -16,7 +18,7 @@ public interface IniciarSesionContract {
         void recuperarContrasena();
 
         //Callbacks
-        void exitoIniciarSesion(String mensaje);
+        void exitoIniciarSesion(UsuarioDTO mensaje);
         void errorIniciarSesion(String mensaje);
     }
 }

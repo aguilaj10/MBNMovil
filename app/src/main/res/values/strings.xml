@@ -7,4 +7,6 @@
     <string name="olvido_contrasena">Olvidó su contraseña?</string>
     <string name="viajes">Viajes</string>
     <string name="reservaciones">Reservaciones</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="email_error">Dirección de correo inválida</string>
 </resources>
