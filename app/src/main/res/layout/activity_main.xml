@@ -68,7 +68,8 @@
                 android:hint="@string/contrasena"
                 android:inputType="textPassword"
                 android:drawableLeft="@drawable/icono_contrasena_selector"
-                app:met_floatingLabelText="@string/contrasena" />
+                app:met_floatingLabelText="@string/contrasena"
+                android:id="@+id/contrasena"/>
 
             <TextView style="@style/EmptyTextEdit"/>
 
