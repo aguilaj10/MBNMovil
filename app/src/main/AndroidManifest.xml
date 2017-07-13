@@ -22,19 +22,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.impl.CambiarContrasena">
+        <activity android:name=".view.impl.ActualizarContrasenaActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW">
-                </action>
-                <category android:name="android.intent.category.DEFAULT"></category>
-                <category android:name="android.intent.category.BROWSABLE"></category>
-                <data android:scheme="http" android:host="www.mbn.com.mx" android:pathPrefix="/MBNMovil/cambiarContrasena">
+                <action android:name="android.intent.action.VIEW"></action>
 
-                </data>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.mbn.com.mx"
+                    android:pathPrefix="/MBNMovil/cambiarContrasena"
+                    android:scheme="http"></data>
             </intent-filter>
         </activity>
-        <activity android:name=".view.impl.HomeActivity"
-            android:label="@string/bienvenido"></activity>
+        <activity
+            android:name=".view.impl.HomeActivity"
+            android:label="@string/bienvenido" />
+        <activity android:name=".view.impl.CambiarContrasenaActivity"></activity>
     </application>
 
 </manifest>
