@@ -22,8 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.impl.HomeActivity"
-            android:label="Principal"></activity>
+        <activity
+            android:name=".view.impl.HomeActivity"
+            android:label="Principal" />
+        <activity android:name=".view.impl.ReservacionesActivity"
+            android:label="Reservaciones"/>
+        <activity android:name=".view.impl.ViajesActivity" android:label="Viajes"></activity>
     </application>
 
 </manifest>
