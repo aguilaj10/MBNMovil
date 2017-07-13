@@ -16,7 +16,11 @@
             android:name=".view.impl.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MBNNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         
         <activity android:name=".view.impl.ReservacionesActivity"
@@ -25,11 +29,6 @@
 
         <activity android:name=".view.impl.HomeActivity"
             android:label="@string/bienvenido">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".view.impl.ActualizarContrasenaActivity">
             <intent-filter>
