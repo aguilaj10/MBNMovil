@@ -72,4 +72,11 @@ public class MainActivity extends AppCompatActivity implements IniciarSesionCont
     public void mostrarError(String error) {
         Toast.makeText(this, error, Toast.LENGTH_LONG).show();
     }
+
+    @OnClick(R.id.linkOlvido)
+    public void mostrarPantallaCambiarContrasena(View btn){
+        Intent intent = new Intent(this, CambiarContrasenaActivity.class);
+        startActivity(intent);
+    }
+
 }
