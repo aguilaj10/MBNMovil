@@ -13,7 +13,7 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = {ModuloReservas.class, ModuloUsuarios.class, ModuloViajes.class})
+@Component(modules = {ModuloReservas.class, ModuloUsuarios.class, ModuloViajes.class, ModuloComun.class})
 public interface MainComponent {
 
     void inject(Object injectable);

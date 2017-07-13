@@ -1,13 +1,10 @@
 package com.mbn.movil.model.api;
 
-import com.mbn.movil.model.dto.EdificioDTO;
-import com.mbn.movil.model.dto.HabitacionDTO;
 import com.mbn.movil.model.dto.UsuarioDTO;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 /**
