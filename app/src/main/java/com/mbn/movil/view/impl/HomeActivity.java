@@ -5,9 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.mbn.movil.MBNMovilApp;
+
 import com.mbn.movil.R;
 
 public class HomeActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
+        setTitle(getTitle() + " " + MBNMovilApp.dto.usuario.nombre);
     }
 
     @OnClick (R.id.imageButtonReservaciones)
@@ -32,5 +34,6 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG, "Mostrar pantalla viajes.");
         Intent intentoMostrarViajes = new Intent(this,ViajesActivity.class);
         startActivity(intentoMostrarViajes);
+
     }
 }

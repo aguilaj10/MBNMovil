@@ -8,4 +8,6 @@ import com.mbn.movil.model.entities.Usuario;
 
 public class UsuarioDTO {
     public Usuario usuario;
+    public int tipoMensaje;
+    public String codigoMensaje;
 }
