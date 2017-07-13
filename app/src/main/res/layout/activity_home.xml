@@ -21,16 +21,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_background">
 
                 <ImageButton
                     android:id="@+id/imageButtonViajes"
                     style="@style/imageButtonHomeLayout"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="@drawable/viajes1"
+                    android:background="@drawable/car"
                     android:scaleType="centerCrop" />
 
                 <TextView
@@ -39,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/viajes"
-                    android:textColor="#303F9F"
+                    android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -47,9 +48,11 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:background="@drawable/shape_background"
+                android:layout_marginTop="10dp">
 
                 <ImageButton
                     android:id="@+id/imageButtonReservaciones"
@@ -57,7 +60,7 @@
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/reservaciones1"
+                    android:background="@drawable/room_key"
                     android:scaleType="centerCrop" />
 
                 <TextView
@@ -66,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/reservaciones"
-                    android:textColor="#303F9F"
+                    android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 

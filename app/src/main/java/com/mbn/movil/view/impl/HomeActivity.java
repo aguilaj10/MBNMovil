@@ -19,7 +19,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
-        setTitle(getTitle() + " " + MBNMovilApp.dto.usuario.nombre);
+//        setTitle(getTitle() + " " + MBNMovilApp.dto.usuario.nombre);
     }
 
     @OnClick (R.id.imageButtonReservaciones)
