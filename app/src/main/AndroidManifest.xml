@@ -3,6 +3,7 @@
     package="com.mbn.movil">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
     <application
         android:name=".MBNMovilApp"
@@ -16,7 +17,13 @@
             android:name=".view.impl.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MBNNoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.impl.RegistrarAutoActivity">
         </activity>
         
         <activity android:name=".view.impl.ReservacionesActivity"
@@ -25,12 +32,21 @@
 
         <activity android:name=".view.impl.HomeActivity"
             android:label="@string/bienvenido">
+        </activity>
+        <activity android:name=".view.impl.ActualizarContrasenaActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW"></action>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.mbn.com.mx"
+                    android:pathPrefix="/MBNMovil/cambiarContrasena"
+                    android:scheme="http"></data>
             </intent-filter>
         </activity>
+        <activity android:name=".view.impl.CambiarContrasenaActivity"></activity>
     </application>
 
 </manifest>

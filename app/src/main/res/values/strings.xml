@@ -4,5 +4,16 @@
     <string name="usuario">Usuario</string>
     <string name="contrasena">Contraseña</string>
     <string name="registrarme">Registrarme</string>
-    <string name="olvido_contrasena">Olvidó su contraseña?</string>
+    <string name="olvido_contrasena">Olvidé mi contraseña</string>
+    <string name="viajes">Viajes</string>
+    <string name="reservaciones">Reservaciones</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="email_error">Dirección de correo inválida</string>
+    <string name="cambiar_contrasena">Cambiar contraseña</string>
+    <string name="ingrese_correo_electronico">Ingrese correo electrónico</string>
+    <string name="aceptar">Aceptar</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="nueva_contrasena">Nueva contraseña</string>
+    <string name="repita_contrasena">Repita su contraseña</string>
+    <string name="btn_guardar">Guardar</string>
 </resources>
