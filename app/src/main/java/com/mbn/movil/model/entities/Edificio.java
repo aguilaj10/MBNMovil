@@ -11,4 +11,8 @@ public class Edificio {
     private String direccion;
     private Boolean estacionamiento;
 
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

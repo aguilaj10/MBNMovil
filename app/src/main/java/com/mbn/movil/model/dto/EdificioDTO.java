@@ -12,4 +12,6 @@ public class EdificioDTO {
 
     public List<Edificio> edificios;
     public Edificio edificio;
+    public String fechaInicioString;
+    public String fechaFinString;
 }

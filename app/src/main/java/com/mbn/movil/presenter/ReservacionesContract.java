@@ -3,6 +3,7 @@ package com.mbn.movil.presenter;
 import com.mbn.movil.model.dto.EdificioDTO;
 import com.mbn.movil.model.dto.HabitacionDTO;
 import com.mbn.movil.model.dto.ReservaDTO;
+import com.mbn.movil.model.entities.Edificio;
 import com.mbn.movil.model.entities.Reserva;
 
 /**
@@ -13,11 +14,13 @@ public interface ReservacionesContract {
     interface Vista {
         void mostrarPantallaReservas();
         void mostrarError();
+        void llenarListaEdificios(EdificioDTO dto);
+        void llenarListaHabitaciones(HabitacionDTO dto);
     }
 
     interface Presenter {
-        void ObtenerEdificios();
-        void ObtenerHabitaiones();
+        void obtenerEdificios();
+        void obtenerHabitaiones(Edificio edif, String fechaInicio, String fechaFin);
         void guardarReserva();
         //Callbacks
         void exitoObtenerEdificos(EdificioDTO dto);

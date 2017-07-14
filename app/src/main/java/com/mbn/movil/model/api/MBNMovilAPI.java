@@ -43,7 +43,7 @@ public interface MBNMovilAPI {
     Call<EdificioDTO> obtenerEdificios();
 
     @GET("mbn-service/ws/obtenerHabitacionesId/")
-    Call<HabitacionDTO> obtenerHabitaciones(@Body int id);
+    Call<HabitacionDTO> obtenerHabitaciones(@Body EdificioDTO dto);
 
     @POST ("mbn-service/ws/guardarReserva/")
     Call<ReservaDTO> guardarReserva(@Body ReservaDTO dto);
