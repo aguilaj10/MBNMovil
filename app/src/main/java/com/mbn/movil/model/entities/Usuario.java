@@ -5,6 +5,15 @@ package com.mbn.movil.model.entities;
  */
 
 public class Usuario {
+    public int usuarioId;
     public String usuario;
     public String contrasena;
+    public String nombre;
+    public String apellidos;
+    public boolean checked;
+
+    @Override
+    public String toString() {
+        return nombre+" "+apellidos;
+    }
 }
