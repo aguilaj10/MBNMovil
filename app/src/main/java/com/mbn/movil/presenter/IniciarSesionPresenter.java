@@ -3,6 +3,7 @@ package com.mbn.movil.presenter;
 import android.util.Log;
 
 import com.mbn.movil.model.api.IniciarSesionCall;
+import com.mbn.movil.model.dto.UsuarioDTO;
 import com.mbn.movil.model.entities.Usuario;
 
 import javax.inject.Inject;
@@ -30,10 +31,6 @@ public class IniciarSesionPresenter implements IniciarSesionContract.Presenter {
         call.iniciarSesion(usr, this);
     }
 
-    @Override
-    public void registrarUsuario() {
-
-    }
 
     @Override
     public void recuperarContrasena() {
@@ -41,14 +38,14 @@ public class IniciarSesionPresenter implements IniciarSesionContract.Presenter {
     }
 
     @Override
-    public void exitoIniciarSesion(String mensaje) {
-        Log.d(TAG, "exitoIniciarSesion: Mensaje: " + mensaje);
-        vista.mostrarPantallaInicio();
+    public void exitoIniciarSesion(UsuarioDTO dto) {
+        Log.d(TAG, "exitoIniciarSesion: Mensaje: " + dto.usuario.usuario);
+        vista.mostrarPantallaInicio(dto);
     }
 
     @Override
     public void errorIniciarSesion(String mensaje) {
         Log.d(TAG, "errorIniciarSesion: Mensaje: " + mensaje);
-        vista.mostrarError();
+        vista.mostrarError(mensaje);
     }
 }
