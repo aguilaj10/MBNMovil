@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     @OnClick (R.id.imageButtonViajes)
     public  void  mostrarLayoutViajes(){
         Log.d(TAG, "Mostrar pantalla viajes.");
-        Intent intentoMostrarViajes = new Intent(this,ViajesActivity.class);
+        Intent intentoMostrarViajes = new Intent(this,RegistrarAutoActivity.class);
         startActivity(intentoMostrarViajes);
 
     }
