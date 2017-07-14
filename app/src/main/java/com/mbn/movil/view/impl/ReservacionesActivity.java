@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -15,6 +16,10 @@ import com.mbn.movil.R;
 import com.mbn.movil.di.DaggerReservasComponent;
 import com.mbn.movil.di.ModuloComun;
 import com.mbn.movil.di.ModuloReservas;
+import com.mbn.movil.model.dto.EdificioDTO;
+import com.mbn.movil.model.dto.HabitacionDTO;
+import com.mbn.movil.model.entities.Edificio;
+import com.mbn.movil.model.entities.Habitacion;
 import com.mbn.movil.presenter.ReservacionesContract;
 
 import java.util.ArrayList;
@@ -23,16 +28,25 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static android.support.v7.appcompat.R.styleable.View;
 
 public class ReservacionesActivity extends AppCompatActivity implements ReservacionesContract.Vista {
-    private Spinner spinner ;
-    private TextView fechaInicio;
+    @BindView(R.id.spinner)
+    Spinner spinner ;
+    @BindView(R.id.txtFechaInicio)
+    TextView fechaInicio;
+    @BindView(R.id.txtFechaFin)
+    TextView fechaFin;
+    @BindView(R.id.spinner2)
+    Spinner habitaciones;
 
     @Inject
     ReservacionesContract.Presenter presenter;
+
+    private Edificio edif;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,26 +60,6 @@ public class ReservacionesActivity extends AppCompatActivity implements Reservac
                 .moduloComun(new ModuloComun(getApplication()))
                 .moduloReservas(new ModuloReservas(this))
                 .build().inyectarEnReservacionesActivity(this);
-
-
-       /* spinner = (Spinner) findViewById(R.id.spinner);
-        List<String> list = new ArrayList<String>();
-        list.add("RANJITH");
-        list.add("ARUN");
-        list.add("JEESMON");
-        list.add("NISAM");
-        list.add("SREEJITH");
-        list.add("SANJAY");
-        list.add("AKSHY");
-        list.add("FIROZ");
-        list.add("RAHUL");
-        list.add("ARJUN");
-        list.add("SAVIYO");
-        list.add("VISHNU");
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);*/
 
 
         fechaInicio = (EditText) findViewById(R.id.fechaInicio);
@@ -89,9 +83,45 @@ public class ReservacionesActivity extends AppCompatActivity implements Reservac
         });
 
 
+        presenter.obtenerEdificios();
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                edif = (Edificio) parent.getAdapter().getItem(position);
+                obtenerHabitaciones();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        fechaInicio.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus) {
+                    obtenerHabitaciones();
+                }
+            }
+        });
+
+        fechaFin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus) {
+                    obtenerHabitaciones();
+                }
+            }
+        });
     }
 
+    private void obtenerHabitaciones() {
+        if(edif != null && !fechaInicio.getText().toString().equalsIgnoreCase("") & !fechaFin.getText().toString().equalsIgnoreCase("")) {
+            presenter.obtenerHabitaiones(edif, fechaInicio.getText().toString(), fechaFin.getText().toString());
+        }
+    }
 
     @Override
     public void mostrarPantallaReservas() {
@@ -101,5 +131,19 @@ public class ReservacionesActivity extends AppCompatActivity implements Reservac
     @Override
     public void mostrarError() {
 
+    }
+
+    @Override
+    public void llenarListaEdificios(EdificioDTO dto) {
+        ArrayAdapter<Edificio> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dto.edificios);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
+
+    @Override
+    public void llenarListaHabitaciones(HabitacionDTO dto) {
+        ArrayAdapter<Habitacion> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dto.habitaciones);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        habitaciones.setAdapter(adapter);
     }
 }

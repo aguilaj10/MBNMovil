@@ -20,7 +20,7 @@ import retrofit2.Response;
  */
 
 public class ReservacionesCall {
-    private static final String TAG = ObtenerHabitacionesCall.class.getSimpleName();
+    private static final String TAG = ReservacionesCall.class.getSimpleName();
     private MBNMovilAPI api;
     private int id;
 
@@ -28,7 +28,7 @@ public class ReservacionesCall {
         this.api = api;
     }
 
-    public void obtenerEdificios(Edificio edificio, final ObtenerEdificiosContract.Presenter listener) {
+    public void obtenerEdificios(Edificio edificio, final ReservacionesContract.Presenter listener) {
         Call<EdificioDTO> call = api.obtenerEdificios();
         call.enqueue(new Callback<EdificioDTO>() {
             @Override
@@ -49,9 +49,12 @@ public class ReservacionesCall {
         });
     }
 
-    public void obtenerHabitaciones(Habitacion habitacion, final ObtenerHabitacionesContract.Presenter listener) {
-
-        Call<HabitacionDTO> call = api.obtenerHabitaciones(id);
+    public void obtenerHabitaciones(Edificio edif, String fechInicio, String fechaFin, final ReservacionesContract.Presenter listener) {
+        EdificioDTO dto = new EdificioDTO();
+        dto.edificio = edif;
+        dto.fechaInicioString = fechInicio;
+        dto.fechaFinString = fechaFin;
+        Call<HabitacionDTO> call = api.obtenerHabitaciones(dto);
         call.enqueue(new Callback<HabitacionDTO>() {
             @Override
             public void onResponse(Call<HabitacionDTO> call, Response<HabitacionDTO> response) {

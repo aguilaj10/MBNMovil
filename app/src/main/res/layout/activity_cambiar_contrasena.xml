@@ -66,6 +66,22 @@
                 android:id="@+id/aceptar"
                 android:text="@string/aceptar"
                 android:background="@color/primary_light"/>
+            <TextView style="@style/EmptyTextEdit"/>s
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/LinearLayoutLogin"
+            android:layout_below="@+id/btnLayout"
+            android:id="@+id/mensajeLayot">
+
+            <TextView style="@style/EmptyTextEdit"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:textAlignment="center"
+                android:textColor="@color/primary"
+                android:text="@string/mensaje_cambio_contrasena"/>
             <TextView style="@style/EmptyTextEdit"/>
         </LinearLayout>
     </RelativeLayout>

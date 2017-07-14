@@ -36,12 +36,14 @@ public interface MBNMovilAPI {
     @GET("mbn-service/ws/cambiarContrasena")
     Call<UsuarioDTO> cambiarContrasena(@Query("correo") String correo);
 
+    @GET("mbn-service/ws/buscarUsuario")
+    Call<UsuarioDTO> buscarUsuario(@Query("cadena") String cadena);
 
     @GET("mbn-service/ws/obtenerEdificios/")
     Call<EdificioDTO> obtenerEdificios();
 
     @GET("mbn-service/ws/obtenerHabitacionesId/")
-    Call<HabitacionDTO> obtenerHabitaciones(@Body int id);
+    Call<HabitacionDTO> obtenerHabitaciones(@Body EdificioDTO dto);
 
     @POST ("mbn-service/ws/guardarReserva/")
     Call<ReservaDTO> guardarReserva(@Body ReservaDTO dto);

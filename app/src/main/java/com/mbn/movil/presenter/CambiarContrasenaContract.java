@@ -7,11 +7,9 @@ import com.mbn.movil.model.dto.UsuarioDTO;
  */
 
 public interface CambiarContrasenaContract {
-    interface Vista {
+    interface Vista extends BaseVista{
         void mostrarPantallaInicio(String mensaje);
         void mostrarError(String error);
-        void mostrarModal();
-        void cerrarModal();
     }
 
     interface Presenter {
