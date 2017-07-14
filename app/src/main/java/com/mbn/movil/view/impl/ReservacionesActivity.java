@@ -15,6 +15,7 @@ import com.mbn.movil.R;
 import com.mbn.movil.di.DaggerReservasComponent;
 import com.mbn.movil.di.ModuloComun;
 import com.mbn.movil.di.ModuloReservas;
+import com.mbn.movil.model.dto.EdificioDTO;
 import com.mbn.movil.presenter.ReservacionesContract;
 
 import java.util.ArrayList;
@@ -23,13 +24,17 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static android.support.v7.appcompat.R.styleable.View;
 
 public class ReservacionesActivity extends AppCompatActivity implements ReservacionesContract.Vista {
-    private Spinner spinner ;
-    private TextView fechaInicio;
+    @BindView(R.id.spinner)
+    Spinner spinner ;
+    @BindView(R.id.fechaInicio)
+    TextView fechaInicio;
+
 
     @Inject
     ReservacionesContract.Presenter presenter;
@@ -47,28 +52,14 @@ public class ReservacionesActivity extends AppCompatActivity implements Reservac
                 .moduloReservas(new ModuloReservas(this))
                 .build().inyectarEnReservacionesActivity(this);
 
-
-       /* spinner = (Spinner) findViewById(R.id.spinner);
-        List<String> list = new ArrayList<String>();
-        list.add("RANJITH");
-        list.add("ARUN");
-        list.add("JEESMON");
-        list.add("NISAM");
-        list.add("SREEJITH");
-        list.add("SANJAY");
-        list.add("AKSHY");
-        list.add("FIROZ");
-        list.add("RAHUL");
-        list.add("ARJUN");
-        list.add("SAVIYO");
-        list.add("VISHNU");
+        EdificioDTO dto= presenter.ObtenerEdificios();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);*/
+        spinner.setAdapter(adapter);
 
 
-        fechaInicio = (EditText) findViewById(R.id.fechaInicio);
+
         fechaInicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,8 +70,6 @@ public class ReservacionesActivity extends AppCompatActivity implements Reservac
                 DatePickerDialog dialog = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-
                         fechaInicio.setText(dayOfMonth+"/"+month+"/"+year);
                     }
                 }, mYear, mMonth, mDay);
