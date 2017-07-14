@@ -32,8 +32,8 @@ public class RegistrarAutomovilCall {
         call.enqueue(new Callback<AutomovilDTO>() {
             @Override
             public void onResponse(Call<AutomovilDTO> call, Response<AutomovilDTO> responseAutomovilDTO) {
-                Log.d(TAG, "CODIGO: ==============>"+responseAutomovilDTO.body().getTipoMensaje());
-                    if (responseAutomovilDTO.isSuccessful() && responseAutomovilDTO.body().getTipoMensaje()==3){
+                Log.d(TAG, "CODIGO: ==============>"+responseAutomovilDTO.body().tipoMensaje);
+                    if (responseAutomovilDTO.isSuccessful() && responseAutomovilDTO.body().tipoMensaje==3){
                         Log.d(TAG, "Se guardo el automovil satisfactoriamente :)");
                         listener.exitoGuardarAutomovil();
                     }else{
