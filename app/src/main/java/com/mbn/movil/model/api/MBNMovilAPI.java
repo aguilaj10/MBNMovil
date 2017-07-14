@@ -35,7 +35,7 @@ public interface MBNMovilAPI {
 
     @GET("mbn-service/ws/cambiarContrasena")
     Call<UsuarioDTO> cambiarContrasena(@Query("correo") String correo);
-    Call<ResponseBody> iniciarSesion(@Body UsuarioDTO dto);
+
 
     @GET("mbn-service/ws/obtenerEdificios/")
     Call<EdificioDTO> obtenerEdificios();

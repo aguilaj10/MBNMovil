@@ -12,20 +12,42 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mbn.movil.R;
+import com.mbn.movil.di.DaggerReservasComponent;
+import com.mbn.movil.di.ModuloComun;
+import com.mbn.movil.di.ModuloReservas;
+import com.mbn.movil.presenter.ReservacionesContract;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import butterknife.ButterKnife;
+
 import static android.support.v7.appcompat.R.styleable.View;
 
-public class ReservacionesActivity extends AppCompatActivity{
+public class ReservacionesActivity extends AppCompatActivity implements ReservacionesContract.Vista {
     private Spinner spinner ;
     private TextView fechaInicio;
+
+    @Inject
+    ReservacionesContract.Presenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservaciones);
+
+
+        ButterKnife.bind(this);
+
+        DaggerReservasComponent.builder()
+                .moduloComun(new ModuloComun(getApplication()))
+                .moduloReservas(new ModuloReservas(this))
+                .build().inyectarEnReservacionesActivity(this);
+
+
        /* spinner = (Spinner) findViewById(R.id.spinner);
         List<String> list = new ArrayList<String>();
         list.add("RANJITH");
@@ -71,5 +93,13 @@ public class ReservacionesActivity extends AppCompatActivity{
     }
 
 
+    @Override
+    public void mostrarPantallaReservas() {
 
+    }
+
+    @Override
+    public void mostrarError() {
+
+    }
 }

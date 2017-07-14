@@ -12,5 +12,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = {ModuloReservas.class, ModuloComun.class})
 public interface ReservasComponent {
- void inyectarEnResercacionesActivity(ReservacionesActivity reservacionesActivity);
+ void inyectarEnReservacionesActivity(ReservacionesActivity reservacionesActivity);
 }
