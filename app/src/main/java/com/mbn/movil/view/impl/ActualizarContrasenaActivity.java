@@ -17,7 +17,13 @@ public class ActualizarContrasenaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_actualizar_contrasena);
         Intent data = getIntent();
         String action = data.getData().getPath();
+        Log.d(TAG, "onCreate: la cadena a enviar es:" + cortarCadena(action));
+    }
 
-        Log.d(TAG, "onCreate: url = " + action);
+    public String cortarCadena(String cadena){
+
+        int posicion = cadena.lastIndexOf("/");
+        cadena = cadena.substring(posicion+1);
+        return cadena;
     }
 }

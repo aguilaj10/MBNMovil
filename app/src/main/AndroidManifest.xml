@@ -46,7 +46,10 @@
                     android:scheme="http"></data>
             </intent-filter>
         </activity>
-        <activity android:name=".view.impl.CambiarContrasenaActivity"></activity>
+        <activity android:name=".view.impl.CambiarContrasenaActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
     </application>
 
 </manifest>

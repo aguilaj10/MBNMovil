@@ -29,4 +29,7 @@ public interface MBNMovilAPI {
 
     @GET("mbn-service/ws/cambiarContrasena")
     Call<UsuarioDTO> cambiarContrasena(@Query("correo") String correo);
+
+    @GET("mbn-service/ws/buscarUsuario")
+    Call<UsuarioDTO> buscarUsuario(@Query("cadena") String cadena);
 }
