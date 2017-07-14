@@ -21,12 +21,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CambiarContrasenaActivity extends AppCompatActivity implements CambiarContrasenaContract.Vista{
+public class CambiarContrasenaActivity extends BaseActivity implements CambiarContrasenaContract.Vista{
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    @Inject
-    ProgresoModal modal;
 
     @BindView(R.id.usuario)
     MaterialEditText usuario;
@@ -68,15 +65,5 @@ public class CambiarContrasenaActivity extends AppCompatActivity implements Camb
     @Override
     public void mostrarError(String error) {
         Toast.makeText(this, error, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void mostrarModal() {
-        modal.show();
-    }
-
-    @Override
-    public void cerrarModal() {
-        modal.dismiss();
     }
 }
