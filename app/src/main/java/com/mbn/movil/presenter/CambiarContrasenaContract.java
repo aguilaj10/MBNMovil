@@ -10,6 +10,8 @@ public interface CambiarContrasenaContract {
     interface Vista {
         void mostrarPantallaInicio(String mensaje);
         void mostrarError(String error);
+        void mostrarModal();
+        void cerrarModal();
     }
 
     interface Presenter {
