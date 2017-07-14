@@ -1,5 +1,6 @@
 package com.mbn.movil.model.api;
 
+import com.mbn.movil.model.dto.AutomovilDTO;
 import com.mbn.movil.model.dto.UsuarioDTO;
 
 import okhttp3.ResponseBody;
@@ -16,9 +17,16 @@ import retrofit2.http.Query;
 
 public interface MBNMovilAPI {
 
+
+    @POST ("mbn-service/ws/guardarAutomovil/")
+    Call<AutomovilDTO> guardarAutomovil(@Body AutomovilDTO dto);
+
+    @GET("mbn-service/ws/obtenerUsuarios/")
+    Call<UsuarioDTO> buscarUsuarios();
+
     @POST ("mbn-service/ws/iniciarSesion/")
     Call<UsuarioDTO> iniciarSesion(@Body UsuarioDTO dto);
 
-    @GET("cambiarContrasena")
+    @GET("mbn-service/ws/cambiarContrasena")
     Call<UsuarioDTO> cambiarContrasena(@Query("correo") String correo);
 }

@@ -3,6 +3,7 @@
     package="com.mbn.movil">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
     <application
         android:name=".MBNMovilApp"
@@ -21,6 +22,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".view.impl.RegistrarAutoActivity">
         </activity>
         
         <activity android:name=".view.impl.ReservacionesActivity"
