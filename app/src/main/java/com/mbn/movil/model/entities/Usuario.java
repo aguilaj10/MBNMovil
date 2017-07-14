@@ -9,6 +9,14 @@ public class Usuario {
     public String contrasena;
     public String nombre;
     public String apellidos;
+    public boolean checked;
+
+    @Override
+    public String toString() {
+        return nombre+" "+apellidos;
+    }
+
     public String estado;
     public Integer usuarioId;
+
 }
