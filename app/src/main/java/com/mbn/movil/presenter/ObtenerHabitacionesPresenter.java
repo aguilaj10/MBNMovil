@@ -7,23 +7,26 @@ import com.mbn.movil.model.dto.HabitacionDTO;
  */
 
 public class ObtenerHabitacionesPresenter implements ObtenerHabitacionesContract.Presenter {
+
+
     @Override
     public void ObtenerHabitaiones() {
 
     }
 
     @Override
-    public void exitoObtenerHabitaiones(HabitacionDTO dto) {
+    public void exitoObtenerHabitaciones(HabitacionDTO dto) {
 
     }
 
     @Override
-    public void errorObtenerHabitaiones(HabitacionDTO dto) {
+    public void errorObtenerHabitaciones(HabitacionDTO dto) {
 
     }
 
     @Override
-    public void errorObtenerHabitaiones(String texto) {
+    public void errorObtenerHabitaciones(String texto) {
 
     }
 }
+

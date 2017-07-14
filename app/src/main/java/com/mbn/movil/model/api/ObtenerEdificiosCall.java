@@ -23,7 +23,7 @@ import retrofit2.Response;
  */
 
 public class ObtenerEdificiosCall {
-    private static final String TAG = IniciarSesionCall.class.getSimpleName();
+    private static final String TAG = ObtenerEdificiosCall.class.getSimpleName();
     private MBNMovilAPI api;
 
     public ObtenerEdificiosCall(MBNMovilAPI api) {

@@ -1,23 +1,32 @@
 package com.mbn.movil.view.impl;
 
+import android.app.DatePickerDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.mbn.movil.R;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-public class ReservacionesActivity extends AppCompatActivity {
+import static android.support.v7.appcompat.R.styleable.View;
+
+public class ReservacionesActivity extends AppCompatActivity{
     private Spinner spinner ;
+    private TextView fechaInicio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservaciones);
-
-        spinner = (Spinner) findViewById(R.id.spinner);
+       /* spinner = (Spinner) findViewById(R.id.spinner);
         List<String> list = new ArrayList<String>();
         list.add("RANJITH");
         list.add("ARUN");
@@ -34,6 +43,33 @@ public class ReservacionesActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        spinner.setAdapter(adapter);*/
+
+
+        fechaInicio = (EditText) findViewById(R.id.fechaInicio);
+        fechaInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar c = Calendar.getInstance();
+                int mYear = c.get(Calendar.YEAR);
+                int mMonth = c.get(Calendar.MONTH);
+                int mDay = c.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog dialog = new DatePickerDialog(v.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+
+                        fechaInicio.setText(dayOfMonth+"/"+month+"/"+year);
+                    }
+                }, mYear, mMonth, mDay);
+                dialog.show();
+            }
+        });
+
+
+
     }
+
+
+
 }

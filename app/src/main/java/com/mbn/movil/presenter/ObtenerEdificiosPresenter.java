@@ -6,7 +6,7 @@ import com.mbn.movil.model.dto.EdificioDTO;
  * Created by lenovo on 12/07/2017.
  */
 
-public class ObtnerEdificiosPresenter implements ObtenerEdificiosContract.Presenter  {
+public class ObtenerEdificiosPresenter implements ObtenerEdificiosContract.Presenter  {
 
     @Override
     public void ObtenerEdificios() {

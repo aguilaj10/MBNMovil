@@ -18,8 +18,8 @@ public interface ObtenerHabitacionesContract {
 
 
         //Callbacks
-        void exitoObtenerHabitaiones(HabitacionDTO dto);
-        void errorObtenerHabitaiones(HabitacionDTO dto);
-        void errorObtenerHabitaiones(String texto);
+        void exitoObtenerHabitaciones(HabitacionDTO dto);
+        void errorObtenerHabitaciones(HabitacionDTO dto);
+        void errorObtenerHabitaciones(String texto);
     }
 }

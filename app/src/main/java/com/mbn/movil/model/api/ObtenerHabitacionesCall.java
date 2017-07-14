@@ -15,7 +15,7 @@ import retrofit2.Response;
  */
 
 public class ObtenerHabitacionesCall {
-    private static final String TAG = IniciarSesionCall.class.getSimpleName();
+    private static final String TAG = ObtenerHabitacionesCall.class.getSimpleName();
     private MBNMovilAPI api;
     private  int id;
     public ObtenerHabitacionesCall(MBNMovilAPI api) {
@@ -30,16 +30,16 @@ public class ObtenerHabitacionesCall {
             public void onResponse(Call<HabitacionDTO> call, Response<HabitacionDTO> response) {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "onResponse: " + response.body());
-                    listener.exitoObtenerHabitaiones(response.body());
+                    listener.exitoObtenerHabitaciones(response.body());
                 } else {
                     Log.e(TAG, "onResponse: Error: " + response.message());
-                    listener.errorObtenerHabitaiones(response.body());
+                    listener.errorObtenerHabitaciones(response.body());
                 }
             }
 
             @Override
             public void onFailure(Call<HabitacionDTO> call, Throwable t) {
-                listener.errorObtenerHabitaiones(t.getMessage());
+                listener.errorObtenerHabitaciones(t.getMessage());
             }
         });
     }

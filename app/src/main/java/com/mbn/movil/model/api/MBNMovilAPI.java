@@ -2,6 +2,7 @@ package com.mbn.movil.model.api;
 
 import com.mbn.movil.model.dto.EdificioDTO;
 import com.mbn.movil.model.dto.HabitacionDTO;
+import com.mbn.movil.model.dto.ReservaDTO;
 import com.mbn.movil.model.dto.UsuarioDTO;
 
 import okhttp3.ResponseBody;
@@ -24,4 +25,7 @@ public interface MBNMovilAPI {
 
     @GET("mbn-service/ws/obtenerHabitacionesId/")
     Call<HabitacionDTO> obtenerHabitaciones(@Body int id);
+
+    @POST ("mbn-service/ws/guardarReserva/")
+    Call<ReservaDTO> guardarReserva(@Body ReservaDTO dto);
 }
