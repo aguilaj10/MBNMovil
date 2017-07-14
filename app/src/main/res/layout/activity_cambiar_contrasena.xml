@@ -50,7 +50,7 @@
                 android:inputType="textEmailAddress"
                 android:id="@+id/usuario"
                 android:drawableLeft="@drawable/icono_usuario_selector"
-                app:met_floatingLabelText="@string/usuario" />
+                app:met_floatingLabelText="@string/correo_electronico" />
             <TextView style="@style/EmptyTextEdit"/>
         </LinearLayout>
 
@@ -64,7 +64,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="6"
-                android:id="@+id/btnIniciarSesion"
+                android:id="@+id/aceptar"
                 android:text="@string/aceptar"
                 android:background="@color/primary_light"/>
             <TextView style="@style/EmptyTextEdit"/>
