@@ -67,16 +67,13 @@ public class MainActivity extends AppCompatActivity implements IniciarSesionCont
     }
 
     @Override
-    public void mostrarPantallaInicio(UsuarioDTO dto) {
-        MBNMovilApp.dto = dto;
+    public void mostrarPantallaInicio() {
 
-        Intent homeIntent = new Intent(this, HomeActivity.class);
-        startActivity(homeIntent);
     }
 
     @Override
-    public void mostrarError(String error) {
-        Toast.makeText(this, error, Toast.LENGTH_LONG).show();
+    public void mostrarError() {
+
     }
 
     @OnClick(R.id.linkOlvido)

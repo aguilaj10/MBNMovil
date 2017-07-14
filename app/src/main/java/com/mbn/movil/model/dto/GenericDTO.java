@@ -13,3 +13,4 @@ public class GenericDTO {
     public String codigoMensaje;
 
 }
+
