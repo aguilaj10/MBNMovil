@@ -6,9 +6,6 @@ import com.mbn.movil.model.dto.UsuarioDTO;
 import com.mbn.movil.model.entities.Usuario;
 import com.mbn.movil.presenter.IniciarSesionContract;
 
-import java.io.IOException;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,26 +25,30 @@ public class IniciarSesionCall {
     public void iniciarSesion(Usuario usuario, final IniciarSesionContract.Presenter listener) {
         UsuarioDTO dto = new UsuarioDTO();
         dto.usuario = usuario;
-        Call<ResponseBody> call = api.iniciarSesion(dto);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<UsuarioDTO> call = api.iniciarSesion(dto);
+        call.enqueue(new Callback<UsuarioDTO>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<UsuarioDTO> call, Response<UsuarioDTO> response) {
                 try {
                     if (response.isSuccessful()) {
                         Log.d(TAG, "onResponse: " + response.body());
-                        listener.exitoIniciarSesion(response.body().string());
+                        if(response.body().tipoMensaje == 0 ) {
+                            listener.exitoIniciarSesion(response.body());
+                        } else {
+                            listener.errorIniciarSesion(response.body().codigoMensaje);
+                        }
                     } else {
                         Log.e(TAG, "onResponse: Error: " + response.message());
                         listener.errorIniciarSesion(response.message());
                     }
-                } catch (IOException e) {
+                } catch (Exception e) {
                     listener.errorIniciarSesion(e.getMessage());
                     Log.e(TAG, "onResponse: Error al llamar el listener", e);
                 }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<UsuarioDTO> call, Throwable t) {
                 listener.errorIniciarSesion(t.getMessage());
             }
         });
