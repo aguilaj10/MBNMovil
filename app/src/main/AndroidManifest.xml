@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.impl.RegistrarUsuario"></activity>
         <activity android:name=".view.impl.RegistrarAutoActivity">
         </activity>
         

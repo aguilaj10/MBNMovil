@@ -30,10 +30,6 @@ public class IniciarSesionPresenter implements IniciarSesionContract.Presenter {
         call.iniciarSesion(usr, this);
     }
 
-    @Override
-    public void registrarUsuario() {
-
-    }
 
     @Override
     public void recuperarContrasena() {
