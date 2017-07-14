@@ -5,7 +5,6 @@ package com.mbn.movil.model.entities;
  */
 
 public class Usuario {
-    public int usuarioId;
     public String usuario;
     public String contrasena;
     public String nombre;
@@ -16,4 +15,8 @@ public class Usuario {
     public String toString() {
         return nombre+" "+apellidos;
     }
+
+    public String estado;
+    public Integer usuarioId;
+
 }

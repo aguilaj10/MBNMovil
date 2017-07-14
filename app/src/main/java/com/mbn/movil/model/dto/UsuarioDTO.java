@@ -11,4 +11,5 @@ import java.util.List;
 public class UsuarioDTO extends GenericDTO{
     public Usuario usuario;
     public List<Usuario> usuarios;
+
 }

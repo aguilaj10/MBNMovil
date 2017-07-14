@@ -23,11 +23,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.impl.HomeActivity"
-            android:label="Principal" />
         <activity android:name=".view.impl.RegistrarAutoActivity">
         </activity>
+        
+        <activity android:name=".view.impl.ReservacionesActivity"
+            android:label="Reservaciones"/>
+        <activity android:name=".view.impl.ViajesActivity" android:label="Viajes"></activity>
+
+        <activity android:name=".view.impl.HomeActivity"
+            android:label="@string/bienvenido">
+        </activity>
+        <activity android:name=".view.impl.ActualizarContrasenaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"></action>
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.mbn.com.mx"
+                    android:pathPrefix="/MBNMovil/cambiarContrasena"
+                    android:scheme="http"></data>
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.impl.CambiarContrasenaActivity"></activity>
     </application>
 
 </manifest>
