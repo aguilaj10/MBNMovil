@@ -9,6 +9,7 @@
     <string name="reservaciones">Reservaciones</string>
     <string name="bienvenido">Bienvenido</string>
     <string name="email_error">Dirección de correo inválida</string>
+    <string name="title_activity_registrar_usuario">RegistrarUsuario</string>
     <string name="cambiar_contrasena">Cambiar contraseña</string>
     <string name="ingrese_correo_electronico">Ingrese correo electrónico</string>
     <string name="aceptar">Aceptar</string>

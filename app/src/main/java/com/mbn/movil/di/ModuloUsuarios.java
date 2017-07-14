@@ -1,21 +1,18 @@
 package com.mbn.movil.di;
 
-import android.app.Application;
-
-import com.mbn.movil.di.scope.CustomScope;
 import com.mbn.movil.model.api.IniciarSesionCall;
+import com.mbn.movil.model.api.RegistrarUsuarioCall;
 import com.mbn.movil.model.api.MBNMovilAPI;
-import com.mbn.movil.model.api.RetrofitClient;
 import com.mbn.movil.presenter.IniciarSesionContract;
 import com.mbn.movil.presenter.IniciarSesionPresenter;
+import com.mbn.movil.presenter.RegistrarUsuarioContract;
+import com.mbn.movil.presenter.RegistrarUsuarioPresenter;
+import com.mbn.movil.view.impl.RegistrarUsuario;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import okhttp3.Cache;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 
 /**
  * Created by jonathan on 6/07/17.
@@ -23,11 +20,31 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 @Module
 public class ModuloUsuarios {
-    private final IniciarSesionContract.Vista vista;
+    private IniciarSesionContract.Vista vista;
+    private RegistrarUsuarioContract.Vista vistaRegistrarUsuario;
 
     public ModuloUsuarios(IniciarSesionContract.Vista vista) {
         this.vista = vista;
     }
+
+    public ModuloUsuarios(RegistrarUsuarioContract.Vista vista) {
+        this.vistaRegistrarUsuario = vista;
+    }
+
+    // ----- Registrar usuarios -------------
+    @Provides
+    @Singleton
+    public RegistrarUsuarioContract.Vista providesVistaRegistrarUsuario() {
+        return vistaRegistrarUsuario;
+    }
+
+    @Provides
+    @Singleton
+    public RegistrarUsuarioContract.Presenter providesPresenterRegistrarUsuario(RegistrarUsuarioCall call) {
+        return new RegistrarUsuarioPresenter(call, vistaRegistrarUsuario);
+    }
+    // -------------------------------------------
+
 
     @Provides
     @Singleton
@@ -45,5 +62,11 @@ public class ModuloUsuarios {
     @Singleton
     public IniciarSesionCall providesCall(MBNMovilAPI api) {
         return new IniciarSesionCall(api);
+    }
+
+    @Provides
+    @Singleton
+    public RegistrarUsuarioCall providesJmpCall(MBNMovilAPI api) {
+        return new RegistrarUsuarioCall(api);
     }
 }
