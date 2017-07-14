@@ -22,7 +22,6 @@ public class ReservacionesPresenter implements ReservacionesContract.Presenter {
     }
 
     @Override
-    public void ObtenerEdificios() {
 
     }
 
