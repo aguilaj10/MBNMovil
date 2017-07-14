@@ -14,7 +14,6 @@ public interface IniciarSesionContract {
 
     interface Presenter {
         void iniciarSesion(String usuario, String contrasena);
-        void registrarUsuario();
         void recuperarContrasena();
 
         //Callbacks
