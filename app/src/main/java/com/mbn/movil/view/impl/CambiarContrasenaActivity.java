@@ -7,6 +7,7 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.mbn.movil.R;
@@ -28,6 +29,10 @@ public class CambiarContrasenaActivity extends AppCompatActivity implements Camb
     @BindView(R.id.usuario)
     MaterialEditText usuario;
 
+    @BindView(R.id.spinner)
+    ProgressBar spinner;
+
+
     @Inject
     CambiarContrasenaContract.Presenter presenter;
 
@@ -48,6 +53,8 @@ public class CambiarContrasenaActivity extends AppCompatActivity implements Camb
     @OnClick(R.id.aceptar)
     public void cambiarContrasena(View btn) {
         if(Patterns.EMAIL_ADDRESS.matcher(usuario.getText().toString()).matches()) {
+            spinner.setVisibility(View.VISIBLE);
+            spinner.setIndeterminate(true);
             presenter.cambiarContrasena(usuario.getText().toString());
         } else {
             Toast.makeText(this, R.string.email_error, Toast.LENGTH_LONG).show();
