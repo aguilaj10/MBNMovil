@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.mbn.movil.model.api.RegistrarAutomovilCall;
 import com.mbn.movil.model.dto.AutomovilDTO;
+import com.mbn.movil.model.dto.UsuarioDTO;
 import com.mbn.movil.model.entities.Automovil;
 import com.mbn.movil.model.entities.Usuario;
 
@@ -27,9 +28,9 @@ public class RegistrarAutomovilPresenter implements RegistrarAutomovilContract.p
     }
 
     @Override
-    public void buscarUsuarios() {
+    public void buscarConductores(UsuarioDTO usuarioDTO) {
         Vista.mostrarModal();
-        Call.buscarUsuarios(this);
+        Call.buscarConductores(usuarioDTO, this);
     }
 
     @Override
@@ -39,14 +40,14 @@ public class RegistrarAutomovilPresenter implements RegistrarAutomovilContract.p
     }
 
     @Override
-    public void exitoBuscarUsuarios(List<Usuario> usuarios) {
+    public void exitoBuscarConductores(List<Usuario> usuarios) {
         Log.d(TAG, "Exito buscando usuarios");
         Vista.cerrarModal();
         Vista.mostrarExitoBuscarUsuarios(usuarios);
     }
 
     @Override
-    public void errorBuscarUsuarios() {
+    public void errorBuscarConductores() {
         Log.d(TAG, "Error buscando usuarios");
         Vista.cerrarModal();
         Vista.mostrarErrorBuscarUsuarios();

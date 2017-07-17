@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.mbn.movil.MBNMovilApp;
 import com.mbn.movil.R;
 import com.mbn.movil.di.DaggerViajesComponent;
 import com.mbn.movil.di.ModuloComun;
@@ -71,7 +73,7 @@ public class RegistrarAutoActivity extends BaseActivity implements RegistrarAuto
                 .moduloViajes(new ModuloViajes(this))
                 .build().inyectaEnRegistrarAutoActivity(this);
 
-        presenter.buscarUsuarios();
+        presenter.buscarConductores(MBNMovilApp.dto);
     }
 
     @OnClick(R.id.btnCapturarFoto)
@@ -108,6 +110,9 @@ public class RegistrarAutoActivity extends BaseActivity implements RegistrarAuto
         automovil.capacidad=Integer.parseInt(txtCapacidad.getText().toString());
         automovil.placas = txtPlacas.getText().toString();
         automovil.descripcion = txtDescripcion.getText().toString();
+
+        //Se agrega al usuario actual como conductor
+        conductores.add(MBNMovilApp.dto.usuario);
 
         automovilDTO.automovil=automovil;
         automovilDTO.conductores=conductores;

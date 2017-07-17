@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/capacidad"
-            android:text="Capacidad"
+            android:text="Capacidad:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -44,7 +44,7 @@
 
         <TextView
             android:id="@+id/placas"
-            android:text="Placas"
+            android:text="Placas:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -55,7 +55,7 @@
 
         <TextView
             android:id="@+id/descripcion"
-            android:text="Descripción"
+            android:text="Descripción:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -68,7 +68,7 @@
             android:id="@+id/conductores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Conductores"/>
+            android:text="Otros conductores:"/>
 
 
         <ListView

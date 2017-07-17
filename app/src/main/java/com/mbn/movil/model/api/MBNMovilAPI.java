@@ -24,8 +24,8 @@ public interface MBNMovilAPI {
     @POST ("mbn-service/ws/guardarAutomovil/")
     Call<AutomovilDTO> guardarAutomovil(@Body AutomovilDTO dto);
 
-    @GET("mbn-service/ws/obtenerUsuarios/")
-    Call<UsuarioDTO> buscarUsuarios();
+    @POST("mbn-service/ws/obtenerConductores")
+    Call<UsuarioDTO> buscarConductores(@Body UsuarioDTO dto);
 
     @POST ("mbn-service/ws/iniciarSesion/")
     Call<UsuarioDTO> iniciarSesion(@Body UsuarioDTO dto);

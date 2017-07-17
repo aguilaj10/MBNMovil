@@ -1,6 +1,7 @@
 package com.mbn.movil.presenter;
 
 import com.mbn.movil.model.dto.AutomovilDTO;
+import com.mbn.movil.model.dto.UsuarioDTO;
 import com.mbn.movil.model.entities.Automovil;
 import com.mbn.movil.model.entities.Usuario;
 
@@ -20,9 +21,9 @@ public interface RegistrarAutomovilContract {
     }
 
     interface presenter{
-        void buscarUsuarios();
-        void exitoBuscarUsuarios(List<Usuario> usuarios);
-        void errorBuscarUsuarios();
+        void buscarConductores(UsuarioDTO usuarioDTO);
+        void exitoBuscarConductores(List<Usuario> usuarios);
+        void errorBuscarConductores();
 
         void guardarAutomovil(AutomovilDTO automovilDTO);
         void exitoGuardarAutomovil();

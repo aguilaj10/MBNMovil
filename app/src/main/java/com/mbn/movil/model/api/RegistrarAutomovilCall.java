@@ -38,34 +38,39 @@ public class RegistrarAutomovilCall {
                         listener.exitoGuardarAutomovil();
                     }else{
                         Log.d(TAG, "Error guardando el automovil :(");
+                        Log.d(TAG, "Error producido por que no se ha podido guardar! :(");
                         listener.errorGuardarAutomovil();
                     }
             }
 
             @Override
             public void onFailure(Call<AutomovilDTO> call, Throwable t) {
+                Log.d(TAG, "Error guardando el automovil :(");
+                Log.d(TAG, "Causa: "+t.getCause());
+                Log.d(TAG, "Mensaje: "+t.getMessage());
+                Log.d(TAG, "Traza: "+t.getStackTrace());
                 listener.errorGuardarAutomovil();
             }
         });
     }
 
-    public void buscarUsuarios(final RegistrarAutomovilContract.presenter listener){
-        Call<UsuarioDTO> call = api.buscarUsuarios();
+    public void buscarConductores(UsuarioDTO usuarioDTO, final RegistrarAutomovilContract.presenter listener){
+        Call<UsuarioDTO> call = api.buscarConductores(usuarioDTO);
         call.enqueue(new Callback<UsuarioDTO>() {
             @Override
             public void onResponse(Call<UsuarioDTO> call, Response<UsuarioDTO> response) {
                 Log.d(TAG, "Exito en solicitud!");
                 if (response.isSuccessful()){
-                    listener.exitoBuscarUsuarios(response.body().usuarios);
+                    listener.exitoBuscarConductores(response.body().usuarios);
                 }else{
-                    listener.errorBuscarUsuarios();
+                    listener.errorBuscarConductores();
                 }
             }
 
             @Override
             public void onFailure(Call<UsuarioDTO> call, Throwable t) {
                 Log.d(TAG, "Error obteniendo los usuarios");
-                listener.errorBuscarUsuarios();
+                listener.errorBuscarConductores();
             }
         });
 
