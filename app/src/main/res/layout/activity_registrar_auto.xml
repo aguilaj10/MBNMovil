@@ -87,6 +87,12 @@
             android:drawableLeft="@mipmap/ic_camara"
             android:text="Capturar Fotografía"/>
 
+        <Button
+            android:id="@+id/btnGaleria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar de galería"/>
+
         <ImageView
             android:id="@+id/imgFotoAuto"
             android:src="@android:drawable/ic_menu_gallery"

@@ -1,7 +1,10 @@
 package com.mbn.movil.view.impl;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +42,7 @@ import butterknife.OnClick;
 public class RegistrarAutoActivity extends BaseActivity implements RegistrarAutomovilContract.Vista{
     private static final String TAG = RegistrarAutoActivity.class.getSimpleName();
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int SELECT_PICTURE = 100;
     private String fotoAutomovil="";
     private List<Usuario> conductores=new ArrayList<>();
     private AutomovilDTO automovilDTO = new AutomovilDTO();
@@ -73,7 +77,19 @@ public class RegistrarAutoActivity extends BaseActivity implements RegistrarAuto
                 .moduloViajes(new ModuloViajes(this))
                 .build().inyectaEnRegistrarAutoActivity(this);
 
+        //Se agrega al usuario actual como conductor
+        conductores.add(MBNMovilApp.dto.usuario);
+        //Se buscan los posibles conductores
         presenter.buscarConductores(MBNMovilApp.dto);
+    }
+
+    @OnClick(R.id.btnGaleria)
+    public void obtenerFotoGaleria(){
+        Log.d(TAG, "Abriendo galeria ===========>");
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
     }
 
     @OnClick(R.id.btnCapturarFoto)
@@ -87,14 +103,41 @@ public class RegistrarAutoActivity extends BaseActivity implements RegistrarAuto
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //Se responde ante la toma de fotografia
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imgFotoAuto.setImageBitmap(imageBitmap);
             fotoAutomovil = encodeImage(imageBitmap);
         }
+
+        //Se responde ante la selección de una imagen de la galería
+        if(requestCode==SELECT_PICTURE && resultCode==RESULT_OK){
+            Uri selectedImageUri = data.getData();
+            if (selectedImageUri!=null) {
+                String path = getPathFromURI(selectedImageUri);
+                Log.i(TAG, "Image Path : " + path);
+                Bitmap imageBitmap = BitmapFactory.decodeFile(path);
+                imgFotoAuto.setImageBitmap(imageBitmap);
+                fotoAutomovil = encodeImage(imageBitmap);
+            }
+        }
     }
 
+    //Se obtiene la ruta a partir de una URL
+    public String getPathFromURI(Uri contentUri) {
+        String res = null;
+        String[] proj = {MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
+        if (cursor.moveToFirst()) {
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            res = cursor.getString(column_index);
+        }
+        cursor.close();
+        return res;
+    }
+
+    //Se codifica Bitmap a String
     private String encodeImage(Bitmap bm)    {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bm.compress(Bitmap.CompressFormat.JPEG,100,baos);
@@ -110,9 +153,6 @@ public class RegistrarAutoActivity extends BaseActivity implements RegistrarAuto
         automovil.capacidad=Integer.parseInt(txtCapacidad.getText().toString());
         automovil.placas = txtPlacas.getText().toString();
         automovil.descripcion = txtDescripcion.getText().toString();
-
-        //Se agrega al usuario actual como conductor
-        conductores.add(MBNMovilApp.dto.usuario);
 
         automovilDTO.automovil=automovil;
         automovilDTO.conductores=conductores;
