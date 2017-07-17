@@ -4,6 +4,8 @@ import com.mbn.movil.model.api.MBNMovilAPI;
 import com.mbn.movil.model.api.RegistrarAutomovilCall;
 import com.mbn.movil.presenter.RegistrarAutomovilContract;
 import com.mbn.movil.presenter.RegistrarAutomovilPresenter;
+import com.mbn.movil.view.impl.ProgresoModal;
+import com.mbn.movil.view.impl.RegistrarAutoActivity;
 
 import javax.inject.Singleton;
 
@@ -37,6 +39,12 @@ public class ModuloViajes {
     @Singleton
     public RegistrarAutomovilCall providesCall(MBNMovilAPI api){
         return new RegistrarAutomovilCall(api);
+    }
+
+    @Provides
+    @Singleton
+    public ProgresoModal providesModal(){
+        return new ProgresoModal((RegistrarAutoActivity) vista, 100);
     }
 
 }

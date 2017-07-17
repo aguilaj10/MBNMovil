@@ -28,35 +28,41 @@ public class RegistrarAutomovilPresenter implements RegistrarAutomovilContract.p
 
     @Override
     public void buscarUsuarios() {
+        Vista.mostrarModal();
         Call.buscarUsuarios(this);
     }
 
     @Override
     public void guardarAutomovil(AutomovilDTO automovilDTO) {
+        Vista.mostrarModal();
         Call.guardarAutomovil(automovilDTO, this);
     }
 
     @Override
     public void exitoBuscarUsuarios(List<Usuario> usuarios) {
         Log.d(TAG, "Exito buscando usuarios");
+        Vista.cerrarModal();
         Vista.mostrarExitoBuscarUsuarios(usuarios);
     }
 
     @Override
     public void errorBuscarUsuarios() {
         Log.d(TAG, "Error buscando usuarios");
+        Vista.cerrarModal();
         Vista.mostrarErrorBuscarUsuarios();
     }
 
     @Override
     public void exitoGuardarAutomovil() {
         Log.d(TAG, "Exito guardando automovil");
+        Vista.cerrarModal();
         Vista.mostrarExitoGuardarAutomovil();
     }
 
     @Override
     public void errorGuardarAutomovil() {
         Log.d(TAG, "Error guardando el automovil");
+        Vista.cerrarModal();
         Vista.mostrarErrorGuardarAutomovil();
     }
 }

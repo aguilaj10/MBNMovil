@@ -34,7 +34,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RegistrarAutoActivity extends AppCompatActivity implements RegistrarAutomovilContract.Vista{
+public class RegistrarAutoActivity extends BaseActivity implements RegistrarAutomovilContract.Vista{
     private static final String TAG = RegistrarAutoActivity.class.getSimpleName();
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private String fotoAutomovil="";

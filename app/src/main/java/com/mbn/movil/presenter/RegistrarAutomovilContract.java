@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 public interface RegistrarAutomovilContract {
-    interface Vista{
+    interface Vista extends BaseVista{
         void mostrarExitoBuscarUsuarios(List<Usuario> usuarios);
         void mostrarErrorBuscarUsuarios();
 
