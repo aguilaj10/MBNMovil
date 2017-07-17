@@ -17,4 +17,7 @@
     <string name="nueva_contrasena">Nueva contraseña</string>
     <string name="repita_contrasena">Repita su contraseña</string>
     <string name="btn_guardar">Guardar</string>
+    <string name="procesando">Procesando</string>
+    <string name="cargando">Cargando, por favor espere...</string>
+    <string name="mensaje_cambio_contrasena">Se enviará un correo electrónico con las instrucciones para el cambio de contraseña.</string>
 </resources>
