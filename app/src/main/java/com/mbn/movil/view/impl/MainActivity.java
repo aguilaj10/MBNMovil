@@ -60,6 +60,12 @@ public class MainActivity extends AppCompatActivity implements IniciarSesionCont
         }
     }
 
+    @OnClick(R.id.linkRegistrarme)
+    public void registrarUsuario(View btn){
+        Intent intent = new Intent(this, RegistrarUsuario.class);
+        startActivity(intent);
+    }
+
     @Override
     public void mostrarPantallaInicio(UsuarioDTO dto) {
         MBNMovilApp.dto = dto;

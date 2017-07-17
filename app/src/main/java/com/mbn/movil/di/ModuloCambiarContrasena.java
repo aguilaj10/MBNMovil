@@ -1,9 +1,11 @@
-package com.mbn.movil.di.scope;
+package com.mbn.movil.di;
 
 import com.mbn.movil.model.api.CambiarContrasenaCall;
 import com.mbn.movil.model.api.MBNMovilAPI;
 import com.mbn.movil.presenter.CambiarContrasenaContract;
 import com.mbn.movil.presenter.CambiarContrasenaPresenter;
+import com.mbn.movil.view.impl.CambiarContrasenaActivity;
+import com.mbn.movil.view.impl.ProgresoModal;
 
 import javax.inject.Singleton;
 
@@ -39,5 +41,11 @@ public class ModuloCambiarContrasena {
     @Singleton
     public CambiarContrasenaCall providesCall(MBNMovilAPI api) {
         return new CambiarContrasenaCall(api);
+    }
+
+    @Provides
+    @Singleton
+    public ProgresoModal providesModal(){
+        return new ProgresoModal((CambiarContrasenaActivity) vista, 100);
     }
 }

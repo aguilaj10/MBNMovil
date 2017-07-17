@@ -3,7 +3,9 @@
     package="com.mbn.movil">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:name=".MBNMovilApp"
@@ -23,17 +25,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.impl.RegistrarAutoActivity">
-        </activity>
-        
-        <activity android:name=".view.impl.ReservacionesActivity"
-            android:label="Reservaciones"/>
-        <activity android:name=".view.impl.ViajesActivity" android:label="Viajes"></activity>
 
-        <activity android:name=".view.impl.HomeActivity"
-            android:label="@string/bienvenido">
-        </activity>
-        <activity android:name=".view.impl.ActualizarContrasenaActivity">
+        <activity android:name=".view.impl.RegistrarUsuario"></activity>
+        <activity android:name=".view.impl.RegistrarAutoActivity"></activity>
+
+        <activity
+            android:name=".view.impl.ReservacionesActivity"
+            android:label="Reservaciones" />
+        <activity
+            android:name=".view.impl.ViajesActivity"
+            android:label="Viajes"></activity>
+
+        <activity
+            android:name=".view.impl.HomeActivity"
+            android:label="@string/bienvenido"></activity>
+
+        <activity android:name=".view.impl.ActualizarContrasenaActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"></action>
 
@@ -46,7 +54,9 @@
                     android:scheme="http"></data>
             </intent-filter>
         </activity>
-        <activity android:name=".view.impl.CambiarContrasenaActivity"></activity>
+        <activity android:name=".view.impl.CambiarContrasenaActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

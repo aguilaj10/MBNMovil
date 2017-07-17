@@ -1,6 +1,5 @@
 package com.mbn.movil.di;
 
-import com.mbn.movil.di.scope.ModuloCambiarContrasena;
 import com.mbn.movil.view.impl.CambiarContrasenaActivity;
 
 import javax.inject.Singleton;
