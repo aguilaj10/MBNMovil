@@ -30,8 +30,9 @@ public class ActContrasenaCall {
                 try {
                     if (response.isSuccessful()) {
                         Log.d(TAG, "onResponse: " + response.body());
-                        if(response.body().tipoMensaje == 3 ) {
+                        if(response.body().tipoMensaje == 0 ) {
                             listener.exitoActContrasena(response.body());
+                            Log.d(TAG, "onResponse: Si es correcto ------------");
                         } else {
                             listener.errorActContrasena(response.body().codigoMensaje);
                         }

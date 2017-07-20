@@ -73,7 +73,6 @@ public class ActualizarContrasenaActivity extends BaseActivity implements ActCon
 
     @Override
     public void activaCampos(UsuarioDTO usuario) {
-
         nuevopass.setEnabled(true);
         contrasena.setEnabled(true);
         nuevopass.requestFocus();
