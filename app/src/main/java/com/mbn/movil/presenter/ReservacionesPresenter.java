@@ -4,6 +4,7 @@ import com.mbn.movil.model.api.ReservacionesCall;
 import com.mbn.movil.model.dto.EdificioDTO;
 import com.mbn.movil.model.dto.HabitacionDTO;
 import com.mbn.movil.model.dto.ReservaDTO;
+import com.mbn.movil.model.entities.Edificio;
 
 import javax.inject.Inject;
 
@@ -22,13 +23,13 @@ public class ReservacionesPresenter implements ReservacionesContract.Presenter {
     }
 
     @Override
-    public void ObtenerEdificios() {
-
+    public void obtenerEdificios() {
+        call.obtenerEdificios(null, this);
     }
 
     @Override
-    public void ObtenerHabitaiones() {
-
+    public void obtenerHabitaiones(Edificio edif, String fechaInicio, String fechaFin) {
+        call.obtenerHabitaciones(edif, fechaInicio, fechaFin, this);
     }
 
     @Override
@@ -39,7 +40,7 @@ public class ReservacionesPresenter implements ReservacionesContract.Presenter {
 
     @Override
     public void exitoObtenerEdificos(EdificioDTO dto) {
-
+        vista.llenarListaEdificios(dto);
     }
 
     @Override
@@ -54,7 +55,7 @@ public class ReservacionesPresenter implements ReservacionesContract.Presenter {
 
     @Override
     public void exitoObtenerHabitaciones(HabitacionDTO dto) {
-
+        vista.llenarListaHabitaciones(dto);
     }
 
     @Override

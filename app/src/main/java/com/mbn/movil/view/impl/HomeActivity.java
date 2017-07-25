@@ -19,7 +19,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
-//        setTitle(getTitle() + " " + MBNMovilApp.dto.usuario.nombre);
+        setTitle(getTitle() + " " + MBNMovilApp.dto.usuario.nombre);
     }
 
     @OnClick (R.id.imageButtonReservaciones)
@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     @OnClick (R.id.imageButtonViajes)
     public  void  mostrarLayoutViajes(){
         Log.d(TAG, "Mostrar pantalla viajes.");
-        Intent intentoMostrarViajes = new Intent(this,ViajesActivity.class);
+        Intent intentoMostrarViajes = new Intent(this,RegistrarAutoActivity.class);
         startActivity(intentoMostrarViajes);
 
     }

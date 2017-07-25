@@ -27,17 +27,22 @@ public class CambiarContrasenaPresenter implements CambiarContrasenaContract.Pre
 
     @Override
     public void cambiarContrasena(String correo) {
+        vista.mostrarModal();
         call.cambiarContrasena(correo, this);
     }
 
     @Override
     public void exitoEnviarCorreo(String mensaje) {
+        vista.cerrarModal();
         vista.mostrarPantallaInicio(mensaje);
+
 
     }
 
     @Override
     public void errorEnviarCorreo(String mensaje) {
+        vista.cerrarModal();
         vista.mostrarError(mensaje);
+
     }
 }
