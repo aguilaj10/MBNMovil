@@ -8,6 +8,7 @@ import com.mbn.movil.model.dto.HabitacionDTO;
 import com.mbn.movil.model.dto.ReservaDTO;
 >>>>>>> .merge_file_2tEEVU
 import com.mbn.movil.model.dto.UsuarioDTO;
+import com.mbn.movil.model.entities.Usuario;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -33,10 +34,6 @@ public interface MBNMovilAPI {
     @POST ("mbn-service/ws/iniciarSesion/")
     Call<UsuarioDTO> iniciarSesion(@Body UsuarioDTO dto);
 
-<<<<<<< .merge_file_QfHiW5
-    @GET("mbn-service/ws/cambiarContrasena")
-    Call<UsuarioDTO> cambiarContrasena(@Query("correo") String correo);
-=======
     @POST ("mbn-service/ws/iniciarSesion/")
     Call<ResponseBody> registrarUsuario(@Body UsuarioDTO dto);
 
@@ -54,5 +51,8 @@ public interface MBNMovilAPI {
 
     @POST ("mbn-service/ws/guardarReserva/")
     Call<ReservaDTO> guardarReserva(@Body ReservaDTO dto);
->>>>>>> .merge_file_2tEEVU
+
+    @POST ("mbn-service/ws/actualizarContrasena/")
+    Call<UsuarioDTO> actualizarContrasena(@Body UsuarioDTO dto);
+
 }
