@@ -20,4 +20,6 @@
     <string name="procesando">Procesando</string>
     <string name="cargando">Cargando, por favor espere...</string>
     <string name="mensaje_cambio_contrasena">Se enviará un correo electrónico con las instrucciones para el cambio de contraseña.</string>
+    <string name="rellenar_campos">Complete los campos</string>
+    <string name="contrasena_no_coincide">Las contraseñas no coinciden</string>
 </resources>

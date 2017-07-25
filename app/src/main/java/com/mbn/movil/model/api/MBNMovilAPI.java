@@ -5,6 +5,7 @@ import com.mbn.movil.model.dto.EdificioDTO;
 import com.mbn.movil.model.dto.HabitacionDTO;
 import com.mbn.movil.model.dto.ReservaDTO;
 import com.mbn.movil.model.dto.UsuarioDTO;
+import com.mbn.movil.model.entities.Usuario;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -47,4 +48,7 @@ public interface MBNMovilAPI {
 
     @POST ("mbn-service/ws/guardarReserva/")
     Call<ReservaDTO> guardarReserva(@Body ReservaDTO dto);
+
+    @POST ("mbn-service/ws/actualizarContrasena/")
+    Call<UsuarioDTO> actualizarContrasena(@Body UsuarioDTO dto);
 }

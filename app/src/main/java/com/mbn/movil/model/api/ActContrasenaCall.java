@@ -32,12 +32,39 @@ public class ActContrasenaCall {
                         Log.d(TAG, "onResponse: " + response.body());
                         if(response.body().tipoMensaje == 0 ) {
                             listener.exitoActContrasena(response.body());
-                            Log.d(TAG, "onResponse: Si es correcto ------------");
                         } else {
                             listener.errorActContrasena(response.body().codigoMensaje);
                         }
                     } else {
                         listener.errorActContrasena(response.message());
+                    }
+                } catch (Exception e) {
+                    listener.errorActContrasena(e.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UsuarioDTO> call, Throwable t) {
+                listener.errorActContrasena(t.getMessage());
+            }
+        });
+
+    }
+
+    public void enviarUsuario(UsuarioDTO usuario, final ActContrasenaContract.Presenter listener){
+        Call<UsuarioDTO> call = api.actualizarContrasena(usuario); //Aqui llama al servicio, paso de parametros
+        call.enqueue(new Callback<UsuarioDTO>() {
+            @Override
+            public void onResponse(Call<UsuarioDTO> call, Response<UsuarioDTO> response) {
+                try {
+                    if (response.isSuccessful()) {
+                        if(response.body().tipoMensaje == 3 ) {
+                            listener.exitoEnviarUsuario(response.body());
+                        } else {
+                            listener.errorActContrasena(response.body().codigoMensaje);
+                        }
+                    } else {
+                        Log.d(TAG, "onResponse: Error");
                     }
                 } catch (Exception e) {
                     listener.errorActContrasena(e.getMessage());

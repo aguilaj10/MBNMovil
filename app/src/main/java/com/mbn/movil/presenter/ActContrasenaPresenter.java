@@ -29,12 +29,23 @@ public class ActContrasenaPresenter implements ActContrasenaContract.Presenter{
     }
 
     @Override
+    public void enviarUsuario(UsuarioDTO usuario) {
+        vista.mostrarModal();
+        call.enviarUsuario(usuario, this);
+    }
+
+    @Override
     public void exitoActContrasena(UsuarioDTO usuario) {
         vista.cerrarModal();
-        //vista.mostrarPantallaInicio(mensaje);
-        dto = usuario;
         vista.activaCampos(usuario);
     }
+
+    @Override
+    public void exitoEnviarUsuario(UsuarioDTO usuario) {
+        vista.cerrarModal();
+        vista.mostrarPantallaInicio(usuario.codigoMensaje);
+    }
+
 
     @Override
     public void errorActContrasena(String mensaje) {
